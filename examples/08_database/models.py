@@ -12,5 +12,11 @@ class Hero(SQLModel, table=True):
     power: str
     age: int | None = None
     team_id: int | None = Field(default=None, foreign_key="team.id")
-    # team.heroes
     team: Team | None = Relationship(back_populates="heroes")
+
+# Schema
+class HeroUpdate(SQLModel):
+    name: str | None = None
+    power: str | None = None
+    age: int | None = None
+    team_id: int | None = None
